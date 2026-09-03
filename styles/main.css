@@ -437,3 +437,42 @@ footer {
     color: var(--text-muted);
     border-top: 1px solid #2a2a2a;
 }
+
+
+
+/* ---  MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 75px;
+        flex-direction: column;
+        background-color: var(--bg-primary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        gap: 0;
+        border-bottom: 1px solid #2a2a2a;
+    }
+
+    .nav-item {
+        padding: 20px 0;
+        border-bottom: 1px solid #1a1a1a;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+}
