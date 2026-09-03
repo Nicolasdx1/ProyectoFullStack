@@ -64,3 +64,19 @@ header.scrolled {
     align-items: center;
     padding: 15px 5%; /* con esto reducimos levemente el padding vertical para mejor balance de la pagina*/
 }
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item a {
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    font-weight: 600;
+}
+
+.nav-item a:hover {
+    color: var(--accent-color);
+}
