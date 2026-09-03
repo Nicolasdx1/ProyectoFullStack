@@ -9,4 +9,31 @@ hamburger.addEventListener("click", () => {
 document.querySelectorAll(".nav-item a").forEach(n => n.addEventListener("click", () => {
     navMenu.classList.remove("active");
 }));
-git
+
+
+
+// --- Esta es la logica para el filtrado de productos de la tienda ---
+const filterButtons = document.querySelectorAll(".cat-btn");
+const productCards = document.querySelectorAll(".product-card");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        // 1. Cambiar la clase 'active' al botón presionado
+        document.querySelector(".cat-btn.active").classList.remove("active");
+        button.classList.add("active");
+
+        // 2. Obtener la categoría del botón
+        const targetCategory = button.getAttribute("data-category");
+
+        // 3. Mostrar u ocultar los productos correspondientes
+        productCards.forEach(card => {
+            const cardCategory = card.getAttribute("data-category");
+
+            if (targetCategory === "todo" || targetCategory === cardCategory) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
