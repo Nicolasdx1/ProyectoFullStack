@@ -403,6 +403,10 @@ header.scrolled {
     color: #1877f2; 
 }
 
+.channel-card.email .social-icon { 
+    color: #007bff; 
+}
+
 .channel-card h3 {
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -426,7 +430,7 @@ header.scrolled {
 .button-fb { background-color: #1877f2 !important; }
 .button-fb:hover { background-color: #145dbf !important; }
 
-
+.button-email { background-color: #007bff !important; }
 
 /* --- FOOTER --- */
 footer {
@@ -476,3 +480,4 @@ footer {
         font-size: 2.3rem;
     }
 }
+

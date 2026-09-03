@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - Performance Skate Shop</title>
+    <link rel="stylesheet" href="styles/Main.css">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <a href="usuario.html" class="back-home">&larr; Volver a la tienda</a>
+            
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="tab-login">Formulario contacto</button>
+            </div>
+
+            <!-- Formulario de Iniciar Sesión -->
+            <form id="form-login" class="auth-form active">
+                <h2>
+                    ingrese sus datos 
+                </h2>
+                <div class="input-group">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" required placeholder="tu@email.com">
+                </div>
+                <div class="input-group">
+                    <label for="login-name">Nombre</label>
+                    <input type="text" id="login-name" required placeholder="Tu Nombre">
+                </div>
+                <div class="input-group">
+                    <label for="login-message">Mensaje</label>
+                    <textarea id="login-message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                <button type="submit" class="btn-main auth-btn">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/usuario.js"></script>
+</body>
+</html>
