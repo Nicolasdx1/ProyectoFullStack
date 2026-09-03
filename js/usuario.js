@@ -18,6 +18,7 @@ tabRegister.addEventListener('click', () => {
     formLogin.classList.remove('active');
 });
 
+
 // Validación de inicio de sesión (Redirección a Administrador vs Cliente)
 formLogin.addEventListener('submit', (e) => {
     e.preventDefault();
