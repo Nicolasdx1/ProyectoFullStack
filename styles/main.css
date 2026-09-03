@@ -37,6 +37,8 @@ ul {
     padding: 60px 0;
 }
 
+
+
 /* --- HEADER Y NAVEGACIÓN (CON EFECTO DESVANECIDO EN SCROLL) --- */
 header {
     background-color: rgba(18, 18, 18, 0.4); /* Con esto logramos que incie transparente*/
@@ -81,6 +83,9 @@ header.scrolled {
     color: var(--accent-color);
 }
 
+
+
+
 /* --- Estilos para el logo   --- */
 .logo a {
     display: flex;
@@ -103,6 +108,9 @@ header.scrolled {
     transform: scale(0.72); /* Efecto sutil de interacción al pasar el mouse */
 }
 
+
+
+
 /* Menú Hamburguesa */
 .hamburger {
     display: none;
@@ -118,4 +126,45 @@ header.scrolled {
     transition: 0.3s;
 }
 
+
+
+/* --- Estilos para la seccion de inicio --- */
+#inicio {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1547447134-cd3f5c716030?q=80&w=1920') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.btn-main {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.btn-main:hover {
+    background-color: #e03e4a;
+    transform: translateY(-3px);
+}
 
