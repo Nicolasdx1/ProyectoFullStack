@@ -1,0 +1,38 @@
+/* --- VARIABLES Y ESTILOS BASE --- */
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1a1a1a;
+    --accent-color: #ff4a57; /* Rojo skater urbano */
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
