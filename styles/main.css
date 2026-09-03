@@ -349,3 +349,78 @@ header.scrolled {
 .btn-ask:hover {
     background-color: #1ebd56;
 }
+
+
+/* --- Estilos para la seccion contacto --- */
+#contacto {
+    background-color: var(--bg-secondary);
+    text-align: center;
+}
+
+.contact-p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    width: 80%;
+    line-height: 1.6;
+}
+
+.contact-channels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.channel-card {
+    background-color: var(--bg-primary);
+    padding: 40px 20px;
+    border-radius: 8px;
+    border: 1px solid #2a2a2a;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tamaño de los iconos SVG nativos */
+.social-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Colores aplicados al contorno/borde */
+.channel-card.wa .social-icon { 
+    color: #25d366; 
+}
+.channel-card.ig .social-icon { 
+    color: #e1306c; 
+}
+.channel-card.fb .social-icon { 
+    color: #1877f2; 
+}
+
+.channel-card h3 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.channel-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Botones inferiores con sus gradientes y colores sólidos */
+.button-wa { background-color: #25d366 !important; }
+.button-wa:hover { background-color: #1ebd56 !important; }
+
+.button-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; }
+.button-ig:hover { opacity: 0.9; }
+
+.button-fb { background-color: #1877f2 !important; }
+.button-fb:hover { background-color: #145dbf !important; }
