@@ -80,3 +80,28 @@ header.scrolled {
 .nav-item a:hover {
     color: var(--accent-color);
 }
+
+/* --- Estilos para el logo   --- */
+.logo a {
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Evita que el exceso de imagen se salga del contenedor */
+    height: 65px;     /* Altura máxima permitida en la barra */
+    width: 250px;     /* Ancho extendido ideal para tipografías horizontales */
+}
+
+.logo-img {
+    width: 100%;
+    height: 140%;          /* Hacemos la imagen más alta que su contenedor para "hacer zoom" */
+    object-fit: cover;   /* Cambiado a contain para evitar deformaciones en la escala */
+    object-position: center 48%; /* Centra verticalmente el zoom justo donde está el texto */
+    transform: scale(0.69); /* Ajustado según tu preferencia */
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(0.72); /* Efecto sutil de interacción al pasar el mouse */
+}
+
+
+
