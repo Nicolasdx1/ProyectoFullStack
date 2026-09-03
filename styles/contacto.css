@@ -1,0 +1,138 @@
+/* --- ESTILOS DEL FORMULARIO AUTENTICACIÓN / CONTACTO --- */
+
+/* Formulario principal */
+.auth-form {
+    background-color: var(--bg-secondary); /* #1a1a1a */
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 480px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form:hover {
+    box-shadow: 0 12px 30px rgba(255, 74, 87, 0.15); /* Brillo sutil con el rojo acento */
+}
+
+/* Título principal del formulario */
+.auth-form h2 {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Línea decorativa roja bajo el título */
+.auth-form h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color); /* #ff4a57 */
+    border-radius: 2px;
+}
+
+/* Agrupador de label + input/textarea */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: var(--text-muted); /* #aaaaaa */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para inputs y textareas */
+.input-group input,
+.input-group textarea {
+    background-color: var(--bg-primary); /* #121212 */
+    color: var(--text-color); /* #ffffff */
+    border: 1px solid #2a2a2a;
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Área de texto personalizada */
+.input-group textarea {
+    resize: vertical;
+    min-height: 110px;
+    font-family: inherit;
+}
+
+/* Placeholder discreto */
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #555555;
+}
+
+/* Efecto al enfocar los campos */
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--accent-color); /* #ff4a57 */
+    box-shadow: 0 0 8px rgba(255, 74, 87, 0.3);
+}
+
+/* Botón de envío */
+.auth-btn {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* --- ESTILOS DE ALERTAS DINÁMICAS --- */
+.custom-alert {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    max-width: 480px;
+    animation: fadeIn 0.3s ease;
+}
+
+.custom-alert.exito {
+    background-color: rgba(37, 211, 102, 0.2);
+    color: #25d366;
+    border: 1px solid #25d366;
+}
+
+.custom-alert.error {
+    background-color: rgba(255, 74, 87, 0.2);
+    color: var(--accent-color); /* #ff4a57 */
+    border: 1px solid var(--accent-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
