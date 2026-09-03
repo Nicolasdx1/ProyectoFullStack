@@ -103,5 +103,19 @@ header.scrolled {
     transform: scale(0.72); /* Efecto sutil de interacción al pasar el mouse */
 }
 
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+}
 
 
