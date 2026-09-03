@@ -168,3 +168,43 @@ header.scrolled {
     transform: translateY(-3px);
 }
 
+
+
+/* --- Estilos para la seccion nosotros (con video de youtube) --- */
+#nosotros {
+    background-color: var(--bg-secondary);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mantiene las dos columnas perfectas */
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
