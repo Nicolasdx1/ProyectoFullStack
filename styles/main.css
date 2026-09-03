@@ -2,7 +2,7 @@
 :root {
     --bg-primary: #121212;
     --bg-secondary: #1a1a1a;
-    --accent-color: #ff4a57; /* Rojo skater urbano */
+    --accent-color: #ff4a57; 
     --text-color: #ffffff;
     --text-muted: #aaaaaa;
 }
@@ -35,4 +35,32 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 60px 0;
+}
+
+/* --- HEADER Y NAVEGACIÓN (CON EFECTO DESVANECIDO EN SCROLL) --- */
+header {
+    background-color: rgba(18, 18, 18, 0.4); /* Con esto logramos que incie transparente*/
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; /* Suaviza el cambio */
+}
+
+/* Esta clase se activa automáticamente mediante el script.js al hacer scroll hacia abajo */
+header.scrolled {
+    background-color: rgba(12, 12, 12, 0.95); /* Se vuelve oscuro y sólido */
+    border-bottom: 1px solid #2a2a2a;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%; /* con esto reducimos levemente el padding vertical para mejor balance de la pagina*/
 }
