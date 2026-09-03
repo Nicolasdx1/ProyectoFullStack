@@ -351,6 +351,7 @@ header.scrolled {
 }
 
 
+
 /* --- Estilos para la seccion contacto --- */
 #contacto {
     background-color: var(--bg-secondary);
@@ -391,7 +392,7 @@ header.scrolled {
     display: inline-block;
 }
 
-/* Colores aplicados al contorno/borde */
+/* Con esto aplicamos los colores al contorno */
 .channel-card.wa .social-icon { 
     color: #25d366; 
 }
@@ -424,3 +425,15 @@ header.scrolled {
 
 .button-fb { background-color: #1877f2 !important; }
 .button-fb:hover { background-color: #145dbf !important; }
+
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: #0b0b0b;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid #2a2a2a;
+}
