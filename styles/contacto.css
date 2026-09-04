@@ -1,28 +1,65 @@
-/* --- ESTILOS DEL FORMULARIO AUTENTICACIÓN / CONTACTO --- */
+/* Contenedor Principal y Pantalla  */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                url('https://images.unsplash.com/photo-1547447134-cd3f5c716030?q=80&w=1920') no-repeat center center/cover;
+    padding: 20px;
+}
 
-/* Formulario principal */
-.auth-form {
-    background-color: var(--bg-secondary); /* #1a1a1a */
-    border: 1px solid #2a2a2a;
+/* Tarjeta del Formulario */
+.auth-box {
+    background-color: var(--bg-secondary);
+    padding: 40px;
     border-radius: 8px;
-    padding: 30px;
+    border: 1px solid #2a2a2a;
+    width: 100%;
     max-width: 480px;
-    margin: 40px auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Enlace Volver a la Tienda */
+.back-home {
+    display: inline-block;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.back-home:hover {
+    color: var(--accent-color);
+}
+
+/* Encabezado superior del formulario (Tab único) */
+.auth-tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Formulario */
+.auth-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 15px;
 }
 
-.auth-form:hover {
-    box-shadow: 0 12px 30px rgba(255, 74, 87, 0.15); /* Brillo sutil con el rojo acento */
-}
-
-/* Título principal del formulario */
 .auth-form h2 {
     color: var(--text-color);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1px;
@@ -31,7 +68,6 @@
     padding-bottom: 10px;
 }
 
-/* Línea decorativa roja bajo el título */
 .auth-form h2::after {
     content: '';
     position: absolute;
@@ -40,11 +76,11 @@
     transform: translateX(-50%);
     width: 40px;
     height: 3px;
-    background-color: var(--accent-color); /* #ff4a57 */
+    background-color: var(--accent-color);
     border-radius: 2px;
 }
 
-/* Agrupador de label + input/textarea */
+/* Campos de entrada e Inputs */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -52,18 +88,17 @@
 }
 
 .input-group label {
-    color: var(--text-muted); /* #aaaaaa */
-    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-/* Estilos para inputs y textareas */
 .input-group input,
 .input-group textarea {
-    background-color: var(--bg-primary); /* #121212 */
-    color: var(--text-color); /* #ffffff */
+    background-color: var(--bg-primary);
+    color: var(--text-color);
     border: 1px solid #2a2a2a;
     border-radius: 5px;
     padding: 12px 15px;
@@ -72,51 +107,39 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Área de texto personalizada */
 .input-group textarea {
     resize: vertical;
     min-height: 110px;
     font-family: inherit;
 }
 
-/* Placeholder discreto */
 .input-group input::placeholder,
 .input-group textarea::placeholder {
     color: #555555;
 }
 
-/* Efecto al enfocar los campos */
 .input-group input:focus,
 .input-group textarea:focus {
-    border-color: var(--accent-color); /* #ff4a57 */
+    border-color: var(--accent-color);
     box-shadow: 0 0 8px rgba(255, 74, 87, 0.3);
 }
 
-/* Botón de envío */
+/* Ajuste específico al botón de enviar */
 .auth-btn {
+    width: 100%;
     border: none;
     cursor: pointer;
-    width: 100%;
     margin-top: 10px;
-    padding: 14px;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    border-radius: 5px;
 }
 
-
-
-
-
-/* --- ESTILOS DE ALERTAS DINÁMICAS --- */
+/* Alertas de JavaScript */
 .custom-alert {
     padding: 12px 20px;
     border-radius: 5px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-align: center;
-    margin: 0 auto 20px auto;
-    max-width: 480px;
+    margin-bottom: 15px;
     animation: fadeIn 0.3s ease;
 }
 
@@ -128,7 +151,7 @@
 
 .custom-alert.error {
     background-color: rgba(255, 74, 87, 0.2);
-    color: var(--accent-color); /* #ff4a57 */
+    color: var(--accent-color);
     border: 1px solid var(--accent-color);
 }
 
