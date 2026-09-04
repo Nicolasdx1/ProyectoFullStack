@@ -11,7 +11,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -432,16 +431,144 @@ header.scrolled {
 
 .button-email { background-color: #007bff !important; }
 
-/* --- FOOTER --- */
-footer {
-    background-color: #0b0b0b;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+.site-footer {
+    background-color: #161616;
     border-top: 1px solid #2a2a2a;
+    padding-top: 50px;
+    margin-top: 60px;
 }
 
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    font-weight: 900;
+    font-size: 1.5rem;
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a, .footer-col p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.social-links a:hover {
+    background-color: var(--accent-color);
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border: 1px solid #333;
+    background-color: var(--bg-primary);
+    color: #fff;
+    flex: 1;
+}
+
+.newsletter-form button {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 0 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.footer-bottom {
+    background-color: #0d0d0d;
+    padding: 20px 0;
+    border-top: 1px solid #222;
+}
+
+.footer-bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.payment-methods {
+    font-size: 1.8rem;
+    display: flex;
+    gap: 20px;
+}
+
+/* Adaptabilidad Móvil */
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    .footer-bottom-flex {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
 
 
 /* ---  MEDIA QUERIES --- */
@@ -479,4 +606,8 @@ footer {
     .hero-content h1 {
         font-size: 2.3rem;
     }
+}
+
+.fa, .fas, .far, .fal, .fab, .fa-solid, .fa-brands {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
 }

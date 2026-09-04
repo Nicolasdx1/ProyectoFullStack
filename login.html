@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso - Performance Skate Shop</title>
-    <link rel="stylesheet" href="styles/Main.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/login.css">
 </head>
+
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#inicio">
+                    <img src="img/img_nav.PNG" alt="Logo de la tienda" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="usuario.html">Inicio</a></li>
+                <li class="nav-item"><a href="usuario.html">Nosotros</a></li>
+                <li class="nav-item"><a href="usuario.html">Tienda</a></li>
+                <li class="nav-item"><a href="login.html" class="btn-login-nav">Iniciar Sesión</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
     <div class="auth-container">
         <div class="auth-box">
             <a href="usuario.html" class="back-home">&larr; Volver a la tienda</a>
-            
+
             <div class="auth-tabs">
                 <button class="tab-btn active" id="tab-login">Iniciar Sesión</button>
                 <button class="tab-btn" id="tab-register">Registrarse</button>
@@ -50,6 +73,66 @@
             </form>
         </div>
     </div>
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <!-- Columna 1: Brand & Contacto -->
+            <div class="footer-col brand-col">
+                <div class="footer-logo">PERFORMANCE</div>
+                <p><i class="fa-solid fa-comment-dots"></i> Whatsapp: +56 9 7396 9195</p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@performancesb.cl</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Sobre Nosotros -->
+            <div class="footer-col">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Cambios y Devoluciones</a></li>
+                    <li><a href="#">Política de Envío</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Categorías -->
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">OFERTAS</a></li>
+                    <li><a href="#">Skateboard</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                    <li><a href="#">Team Performance</a></li>
+                    <li><a href="#">Venta Mayorista</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Suscripción Newsletter -->
+            <div class="footer-col newsletter-col">
+                <h4>Suscríbete y Ahorra 10%</h4>
+                <p>Entérate de los lanzamientos y novedades, además de un 10% en tu primera compra!</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Ingresa tu email" required>
+                    <button type="submit">SUSCRIBIRME</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Barra Inferior de Copyright y Medios de Pago -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>Copyright © PERFORMANCE SKATESHOP 2026 - Todos los derechos reservados.</p>
+                <div class="payment-methods">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="js/usuario.js"></script>
 </body>
+
 </html>

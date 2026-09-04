@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso - Performance Skate Shop</title>
-    <link rel="stylesheet" href="styles/Main.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/contacto.css">
 </head>
+
 <body>
     <div class="auth-container">
         <div class="auth-box">
             <a href="usuario.html" class="back-home">&larr; Volver a la tienda</a>
-            
+
             <div class="auth-tabs">
                 <button class="tab-btn active" id="tab-login">Formulario contacto</button>
             </div>
@@ -19,7 +21,7 @@
             <!-- Formulario Contacto-->
             <form id="form-login" class="auth-form active">
                 <h2>
-                    ingrese sus datos 
+                    ingrese sus datos
                 </h2>
                 <div class="input-group">
                     <label for="login-email">Correo Electrónico</label>
@@ -38,6 +40,68 @@
             <!--Fin del formulario contacto-->
         </div>
     </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <!-- Columna 1: Brand & Contacto -->
+            <div class="footer-col brand-col">
+                <div class="footer-logo">PERFORMANCE</div>
+                <p><a href="https://wa.me/56973969195" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-solid fa-comment-dots"></i> Whatsapp: +56 9 7396 9195</a></p>
+                <p><i class="fa-solid fa-envelope"></i> contacto@performancesb.cl</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!--  Sobre Nosotros -->
+            <div class="footer-col">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Cambios y Devoluciones</a></li>
+                    <li><a href="#">Política de Envío</a></li>
+                </ul>
+            </div>
+
+            <!--  Categorías -->
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">OFERTAS</a></li>
+                    <li><a href="#">Skateboard</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                    <li><a href="#">Team Performance</a></li>
+                    <li><a href="#">Venta Mayorista</a></li>
+                </ul>
+            </div>
+
+            <!--  Suscripción Newsletter -->
+            <div class="footer-col newsletter-col">
+                <h4>Suscríbete y Ahorra 10%</h4>
+                <p>Entérate de los lanzamientos y novedades, además de un 10% en tu primera compra!</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Ingresa tu email" required>
+                    <button type="submit">SUSCRIBIRME</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Barra Inferior de Copyright y Medios de Pago -->
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>Copyright © PERFORMANCE SKATESHOP 2026 - Todos los derechos reservados.</p>
+                <div class="payment-methods">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="js/contacto.js"></script>
 </body>
+
 </html>
