@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Skate Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/blogs.css">
+    <link rel="stylesheet" href="styles/Main.css">
+</head>
+
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#inicio">
+                    <img src="img/img_nav.PNG" alt="Logo de la tienda" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#inicio">Inicio</a></li>
+                <li class="nav-item"><a href="#nosotros">Nosotros</a></li>
+                <li class="nav-item"><a href="#tienda">Tienda</a></li>
+                <li class="nav-item"><a href="#contacto">Contacto</a></li>
+                <li class="nav-item"><a href="inicio_sesion.html" class="btn-login-nav">Iniciar Sesión</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <!-- Fin del encabezado de pagina-->
+
+    <!-- Sección de inicio de pagina-->
+    <section id="inicio">
+        <div class="hero-content">
+            <h1>Bienvenidos a Performancesb.cl</h1>
+            <p>El mejor hardware, tablas y estilo urbano en un solo lugar.</p>
+            <a href="#tienda" class="btn-main">Ver productos</a>
+        </div>
+    </section>
+    <!-- Fin de sección de inicio de pagina-->
+
+     <!-- Contenido Principal de la sección de Blogs -->
+    <main class="blog-section">
+        <h2 class="section-title">NOTICIAS IMPORTANTES</h2>
+        
+        <!-- Contenedor donde JavaScript inyectará las tarjetas -->
+        <div id="blog-list" class="blog-grid">
+            <!-- Renderizado dinámico -->
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Site Name. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts de control global y específicos de la sección -->
+    <script src="js/main.js"></script>
+    <script src="js/blogs.js"></script>
+</body>
