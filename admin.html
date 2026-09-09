@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Performance Skate Shop</title>
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Estilos base, específicos del admin y gestión de usuarios -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+
+<body class="admin-body">
+
+    <!-- BARRA LATERAL / SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>PERFORMANCE</h2>
+            <span class="badge-admin">Admin Panel</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="#productos" class="nav-btn active" data-section="sec-productos">
+                        <i class="fa-solid fa-box-open"></i> Productos
+                    </a>
+                </li>
+                <li>
+                    <a href="#usuarios" class="nav-btn" data-section="sec-usuarios">
+                        <i class="fa-solid fa-users"></i> Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a href="#mensajes" class="nav-btn" data-section="sec-mensajes">
+                        <i class="fa-solid fa-envelope"></i> Mensajes Contacto
+                    </a>
+                </li>
+                <li>
+                    <a href="#pedidos" class="nav-btn" data-section="sec-pedidos">
+                        <i class="fa-solid fa-receipt"></i> Pedidos
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="usuario.html" class="btn-logout" id="btn-cerrar-sesion">
+                <i class="fa-solid fa-right-from-bracket"></i> Salir / Tienda
+            </a>
+        </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL DEL DASHBOARD -->
+    <main class="admin-main">
+
+        <!-- HEADER DEL PANEL -->
+        <header class="admin-header">
+            <div class="header-title">
+                <h1 id="titulo-seccion">Gestión de Productos</h1>
+            </div>
+            <div class="user-info">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Administrador</span>
+            </div>
+        </header>
+
+        <!-- CONTENEDOR DE SECCIONES -->
+        <div class="admin-container">
+
+            <!-- 1. SECCIÓN GESTIÓN DE PRODUCTOS -->
+            <section id="sec-productos" class="admin-section active">
+                <div class="section-header-actions">
+                    <h2>Inventario de Productos</h2>
+                    <button class="btn-main" id="btn-abrir-modal-prod">
+                        <i class="fa-solid fa-plus"></i> Agregar Producto
+                    </button>
+                </div>
+
+                <!-- Tabla de Productos -->
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>ID</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-productos-body">
+                            <!-- Inyección dinámica con JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 2. SECCIÓN GESTIÓN DE USUARIOS -->
+            <section id="sec-usuarios" class="admin-section">
+                <div class="section-header-actions">
+                    <h2>Gestión de Usuarios</h2>
+                    <button id="btn-nuevo-usuario" class="btn-main">
+                        <i class="fa-solid fa-user-plus"></i> Nuevo Usuario
+                    </button>
+                </div>
+
+                <!-- Pestañas internas para separar Clientes y Staff -->
+                <div class="user-tabs-container">
+                    <button id="tab-clientes" class="user-tab-btn active">Clientes</button>
+                    <button id="tab-staff" class="user-tab-btn">Personal / Staff (Admin - Empleados)</button>
+                </div>
+
+                <!-- SUB-VISTA A: TABLA DE USUARIOS CLIENTES -->
+                <div id="sub-sec-tabla-clientes" class="table-responsive">
+                    <table class="admin-table data-table">
+                        <thead>
+                            <tr>
+                                <th>RUN</th>
+                                <th>Nombre Completo</th>
+                                <th>Correo</th>
+                                <th>Tipo Usuario</th>
+                                <th>Región / Comuna</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-clientes-body">
+                            <!-- Inyección dinámica JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- SUB-VISTA B: TABLA DE USUARIOS STAFF (ADMIN / EMPLEADOS) -->
+                <div id="sub-sec-tabla-staff" class="table-responsive hidden">
+                    <table class="admin-table data-table">
+                        <thead>
+                            <tr>
+                                <th>RUN</th>
+                                <th>Nombre Completo</th>
+                                <th>Correo</th>
+                                <th>Tipo Usuario</th>
+                                <th>Pass Por Defecto</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-staff-body">
+                            <!-- Inyección dinámica JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- SUB-VISTA C: FORMULARIO CREAR / EDITAR USUARIO -->
+                <div id="sub-sec-form-usuario" class="form-container hidden">
+                    <h3 id="form-usr-titulo">Nuevo Usuario</h3>
+                    <form id="form-usuario" novalidate>
+                        <input type="hidden" id="usr-index" value="-1">
+
+                        <div class="form-grid">
+                            <!-- RUN -->
+                            <div class="form-group">
+                                <label for="usr-run">RUN (Sin puntos ni guión)*</label>
+                                <input type="text" id="usr-run" placeholder="19011022K" maxlength="9" required>
+                                <small class="error-msg" id="err-run"></small>
+                            </div>
+
+                            <!-- Nombre -->
+                            <div class="form-group">
+                                <label for="usr-nombre">Nombre*</label>
+                                <input type="text" id="usr-nombre" maxlength="50" required>
+                                <small class="error-msg" id="err-nombre"></small>
+                            </div>
+
+                            <!-- Apellidos -->
+                            <div class="form-group">
+                                <label for="usr-apellidos">Apellidos*</label>
+                                <input type="text" id="usr-apellidos" maxlength="100" required>
+                                <small class="error-msg" id="err-apellidos"></small>
+                            </div>
+
+                            <!-- Correo -->
+                            <div class="form-group">
+                                <label for="usr-email">Correo Electrónico*</label>
+                                <input type="email" id="usr-email" placeholder="ejemplo@duoc.cl" maxlength="100"
+                                    required>
+                                <small class="error-msg" id="err-email"></small>
+                            </div>
+
+                            <!-- Fecha Nacimiento -->
+                            <div class="form-group">
+                                <label for="usr-fecha">Fecha Nacimiento (Opcional)</label>
+                                <input type="date" id="usr-fecha">
+                            </div>
+
+                            <!-- Tipo Usuario / Rol -->
+                            <div class="form-group">
+                                <label for="usr-rol">Tipo de Usuario*</label>
+                                <select id="usr-rol" required>
+                                    <option value="">-- Seleccione Rol --</option>
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Vendedor">Vendedor (Empleado)</option>
+                                    <option value="Cliente">Cliente</option>
+                                </select>
+                                <small class="error-msg" id="err-rol"></small>
+                            </div>
+
+                            <!-- Región -->
+                            <div class="form-group">
+                                <label for="usr-region">Región*</label>
+                                <select id="usr-region" required>
+                                    <option value="">-- Seleccione Región --</option>
+                                </select>
+                                <small class="error-msg" id="err-region"></small>
+                            </div>
+
+                            <!-- Comuna -->
+                            <div class="form-group">
+                                <label for="usr-comuna">Comuna*</label>
+                                <select id="usr-comuna" required disabled>
+                                    <option value="">-- Seleccione Comuna --</option>
+                                </select>
+                                <small class="error-msg" id="err-comuna"></small>
+                            </div>
+
+                            <!-- Dirección -->
+                            <div class="form-group full-width">
+                                <label for="usr-direccion">Dirección*</label>
+                                <input type="text" id="usr-direccion" maxlength="300" required>
+                                <small class="error-msg" id="err-direccion"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="btn-cancelar-usr" class="btn-secondary">Cancelar</button>
+                            <button type="submit" class="btn-main">Guardar Usuario</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 3. SECCIÓN MENSAJES DE CONTACTO -->
+            <section id="sec-mensajes" class="admin-section">
+                <h2>Mensajes Recibidos</h2>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Mensaje</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-mensajes-body">
+                            <!-- Inyección dinámica con JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 4. SECCIÓN PEDIDOS CONFIRMADOS -->
+            <section id="sec-pedidos" class="admin-section">
+                <h2>Historial de Compras</h2>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Fecha</th>
+                                <th>Productos</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-pedidos-body">
+                            <!-- Inyección dinámica con JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL PARA AGREGAR / EDITAR PRODUCTO -->
+    <div class="modal-overlay" id="modal-producto">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Nuevo Producto</h3>
+                <button class="btn-close-modal" id="btn-cerrar-modal">&times;</button>
+            </div>
+            <form id="form-producto" class="auth-form active">
+                <input type="hidden" id="prod-id-original">
+
+                <div class="input-group">
+                    <label for="prod-id">ID Único (ej: tabla-maple-825)</label>
+                    <input type="text" id="prod-id" required placeholder="id-del-producto">
+                </div>
+
+                <div class="input-group">
+                    <label for="prod-nombre">Nombre del Producto</label>
+                    <input type="text" id="prod-nombre" required placeholder="Ej: Tabla Maple Pro 8.25">
+                </div>
+
+                <div class="input-group">
+                    <label for="prod-categoria">Categoría</label>
+                    <select id="prod-categoria" class="admin-select" required>
+                        <option value="tablas">Tablas</option>
+                        <option value="gorros-guantes">Hardwares</option>
+                        <option value="poleras-polerones">Poleras y Polerones</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="prod-precio">Precio ($ CLP)</label>
+                    <input type="number" id="prod-precio" required placeholder="45000">
+                </div>
+
+                <div class="input-group">
+                    <label for="prod-imagen">Ruta de Imagen</label>
+                    <input type="text" id="prod-imagen" required placeholder="img/logo.jpeg">
+                </div>
+
+                <button type="submit" class="btn-main auth-btn">Guardar Producto</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script principal del Admin -->
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

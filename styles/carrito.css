@@ -54,6 +54,16 @@ body.carrito-page #carrito .container {
     padding-top: 30px;
 }
 
+/* =========================================
+   LAYOUT PRINCIPAL DEL CARRITO (DESKTOP)
+   ========================================= */
+
+.carrito-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
 
 /* =========================================
    CONTENEDOR DE PRODUCTOS
@@ -65,7 +75,6 @@ body.carrito-page #carrito .container {
     gap: 15px;
     margin-bottom: 30px;
 }
-
 
 /* =========================================
    PRODUCTO DENTRO DEL CARRITO
@@ -82,12 +91,8 @@ body.carrito-page #carrito .container {
 }
 
 .producto-carrito > img {
-    width: 90px !important;
-    height: 90px !important;
-    min-width: 90px !important;
-    max-width: 90px !important;
-    min-height: 90px !important;
-    max-height: 90px !important;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
     display: block;
     flex-shrink: 0;
@@ -111,9 +116,8 @@ body.carrito-page #carrito .container {
     color: var(--text-muted);
 }
 
-
 /* =========================================
-   CONTROL DE CANTIDAD
+   CONTROL DE CANTIDAD Y ACCIONES
    ========================================= */
 
 .control-cantidad {
@@ -123,7 +127,9 @@ body.carrito-page #carrito .container {
     margin: 12px 0;
 }
 
-.control-cantidad button {
+.control-cantidad button,
+.btn-aumentar,
+.btn-disminuir {
     width: 32px;
     height: 32px;
     border: none;
@@ -136,7 +142,9 @@ body.carrito-page #carrito .container {
     transition: all 0.2s ease;
 }
 
-.control-cantidad button:hover {
+.control-cantidad button:hover,
+.btn-aumentar:hover,
+.btn-disminuir:hover {
     transform: translateY(-2px);
     opacity: 0.9;
 }
@@ -147,7 +155,6 @@ body.carrito-page #carrito .container {
     color: var(--text-color);
     font-weight: bold;
 }
-
 
 /* =========================================
    BOTÓN ELIMINAR
@@ -170,17 +177,17 @@ body.carrito-page #carrito .container {
     border-color: var(--accent-color);
 }
 
-
 /* =========================================
    RESUMEN DE COMPRA
    ========================================= */
 
 #carrito-resumen {
     padding: 25px;
-    margin-top: 20px;
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    position: sticky;
+    top: 130px;
 }
 
 #carrito-resumen h2 {
@@ -199,7 +206,6 @@ body.carrito-page #carrito .container {
     font-weight: bold;
 }
 
-
 /* =========================================
    BOTONES DE ACCIONES
    ========================================= */
@@ -211,6 +217,7 @@ body.carrito-page #carrito .container {
 }
 
 .carrito-acciones button {
+    flex: 1;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -241,7 +248,6 @@ body.carrito-page #carrito .container {
     opacity: 0.9;
 }
 
-
 /* =========================================
    CARRITO VACÍO
    ========================================= */
@@ -252,6 +258,7 @@ body.carrito-page #carrito .container {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    grid-column: 1 / -1;
 }
 
 .carrito-vacio i {
@@ -285,7 +292,6 @@ body.carrito-page #carrito .container {
     opacity: 0.9;
 }
 
-
 /* =========================================
    BOTÓN AGREGAR AL CARRITO
    ========================================= */
@@ -318,7 +324,6 @@ body.carrito-page #carrito .container {
     transform: translateY(0);
 }
 
-
 /* =========================================
    MENSAJE "AGREGADO AL CARRITO"
    ========================================= */
@@ -345,13 +350,21 @@ body.carrito-page #carrito .container {
     transform: translateY(0);
 }
 
-
 /* =========================================
    RESPONSIVE
    ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .carrito-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    #carrito-resumen {
+        position: static;
+    }
+}
 
+@media (max-width: 768px) {
     body.carrito-page {
         padding-top: 90px;
     }
@@ -371,12 +384,8 @@ body.carrito-page #carrito .container {
     }
 
     .producto-carrito > img {
-        width: 70px !important;
-        height: 70px !important;
-        min-width: 70px !important;
-        max-width: 70px !important;
-        min-height: 70px !important;
-        max-height: 70px !important;
+        width: 70px;
+        height: 70px;
     }
 
     .carrito-acciones {

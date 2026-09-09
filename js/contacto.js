@@ -1,66 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const contactForm = document.getElementById("form-login");
+    // DENTRO DE CONTACTO_3.JS (Evento submit del form-login)
+    const formLogin = document.getElementById("form-login");
 
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
+    if (formLogin)
+        formLogin.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            // Obtener los valores de los campos
-            const emailInput = document.getElementById("login-email");
-            const nameInput = document.getElementById("login-name");
-            const messageInput = document.getElementById("login-message");
+            const email = document.getElementById("login-email").value.trim();
+            const nombre = document.getElementById("login-name").value.trim();
+            const mensaje = document.getElementById("login-message").value.trim();
 
-            const email = emailInput.value.trim();
-            const name = nameInput.value.trim();
-            const message = messageInput.value.trim();
-
-            // Validar que no haya campos vacíos
-            if (!email || !name || !message) {
-                mostrarNotificacion("Por favor, completa todos los campos del formulario.", "error");
+            if (!email || !nombre || !mensaje) {
+                mostrarNotificacion("Por favor completa todos los campos.", "error");
                 return;
             }
 
-            // Validar formato de correo electrónico
-            if (!validarEmail(email)) {
-                mostrarNotificacion("Ingresa un correo electrónico válido.", "error");
-                emailInput.focus();
-                return;
-            }
+            // --- CONEXIÓN CON EL PANEL ADMIN ---
+            const nuevoMensaje = {
+                nombre: nombre,
+                email: email,
+                mensaje: mensaje,
+                fecha: new Date().toLocaleDateString("es-CL")
+            };
 
-            // Simulación de envío exitoso
-            mostrarNotificacion(`¡Gracias ${name}! Tu mensaje ha sido enviado correctamente.`, "exito");
+            // Obtenemos los mensajes existentes o creamos una lista nueva
+            const mensajesExistentes = JSON.parse(localStorage.getItem("mensajes_contacto")) || [];
+            mensajesExistentes.push(nuevoMensaje);
 
-            // Limpiar los campos del formulario
-            contactForm.reset();
+            // Guardamos en el localStorage que lee admin.js
+            localStorage.setItem("mensajes_contacto", JSON.stringify(mensajesExistentes));
+
+            mostrarNotificacion("¡Mensaje enviado con éxito al administrador!", "exito");
+            formLogin.reset();
         });
-    }
-});
 
-// Función auxilar para validar correo electrónico mediante expresión regular
-function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
-
-// Función auxiliar para mostrar alertas sin usar alert() nativo
-function mostrarNotificacion(mensaje, tipo) {
-    // Remover alerta previa si existe
-    const alertaPrevia = document.querySelector(".custom-alert");
-    if (alertaPrevia) {
-        alertaPrevia.remove();
+    // Función auxilar para validar correo electrónico mediante expresión regular
+    function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
     }
 
-    // Crear elemento de alerta
-    const alerta = document.createElement("div");
-    alerta.className = `custom-alert ${tipo}`;
-    alerta.textContent = mensaje;
+    // Función auxiliar para mostrar alertas sin usar alert() nativo
+    function mostrarNotificacion(mensaje, tipo) {
+        // Remover alerta previa si existe
+        const alertaPrevia = document.querySelector(".custom-alert");
+        if (alertaPrevia) {
+            alertaPrevia.remove();
+        }
 
-    // Insertar la alerta antes del formulario
-    const contactForm = document.getElementById("form-login");
-    contactForm.parentNode.insertBefore(alerta, contactForm);
+        // Crear elemento de alerta
+        const alerta = document.createElement("div");
+        alerta.className = `custom-alert ${tipo}`;
+        alerta.textContent = mensaje;
 
-    // Eliminar la alerta automáticamente después de 4 segundos
-    setTimeout(() => {
-        alerta.remove();
-    }, 4000);
-}
+        // Insertar la alerta antes del formulario
+        const contactForm = document.getElementById("form-login");
+        contactForm.parentNode.insertBefore(alerta, contactForm);
+
+        // Eliminar la alerta automáticamente después de 4 segundos
+        setTimeout(() => {
+            alerta.remove();
+        }, 4000);
+    }
+})

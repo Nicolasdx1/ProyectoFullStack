@@ -1,0 +1,451 @@
+/* ==========================================
+   PANEL DE ADMINISTRACIÓN (ADMIN.CSS)
+   ========================================== */
+
+body.admin-body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+}
+
+/* 1. BARRA LATERAL / SIDEBAR (Ajuste de z-index y espaciado) */
+.sidebar {
+    width: 260px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que quede por encima de otros contenedores */
+}
+
+.sidebar-header {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Da espacio limpio al badge debajo del título */
+}
+
+.sidebar-header h2 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.badge-admin {
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.sidebar-nav ul {
+    padding: 20px 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 25px;
+    color: var(--text-muted);
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    color: #ffffff;
+    background-color: rgba(255, 74, 87, 0.15);
+    border-left: 4px solid var(--accent-color);
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    background-color: #2a2a2a;
+    color: var(--text-muted);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* 2. CONTENIDO PRINCIPAL */
+.admin-main {
+    margin-left: 260px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* 2. HEADER SUPERIOR (Garantiza altura contenida) */
+.admin-header {
+    background-color: var(--bg-secondary);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    min-height: 75px;
+}
+.admin-header h1 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.user-info i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+/* 3. CONTENEDOR PRINCIPAL (Espaciado interno para no tapar los botones) */
+.admin-container {
+    padding: 30px 40px;
+    flex: 1;
+}
+
+/* 3. SECCIONES Y TABLAS */
+.admin-section {
+    display: none;
+}
+
+.admin-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.section-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-top: 10px; /* Evita que el botón pegue contra el header superior */
+}
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-secondary);
+    text-align: left;
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table th {
+    background-color: #161616;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-table td {
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.admin-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.img-thumb {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* BOTONES DE ACCIÓN DENTRO DE TABLAS */
+.btn-action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 6px;
+    margin-right: 5px;
+    transition: color 0.2s;
+}
+
+.btn-edit { color: #25d366; }
+.btn-edit:hover { color: #1ebd56; }
+
+.btn-delete { color: var(--accent-color); }
+.btn-delete:hover { color: #e03e4a; }
+
+/* 4. MODAL FLOTANTE */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background-color: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.btn-close-modal:hover {
+    color: var(--accent-color);
+}
+
+.admin-select {
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.admin-select:focus {
+    border-color: var(--accent-color);
+}
+
+/* MEDIA QUERIES PARA ADAPTACIÓN MÓVIL */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 70px;
+    }
+    .sidebar-header h2, .badge-admin, .nav-btn span, .sidebar-footer span {
+        display: none;
+    }
+    .nav-btn {
+        justify-content: center;
+        padding: 20px;
+    }
+    .admin-main {
+        margin-left: 70px;
+    }
+}
+
+
+/* ==========================================
+   REAJUSTE DE SOBRESCRITURA DE HEADER (ADMIN)
+   ========================================== */
+header.admin-header {
+    position: static !important; /* Desactiva el position: fixed heredado de main.css */
+    width: auto !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+/* Alineación limpia de la barra lateral con la cabecera */
+.sidebar {
+    top: 0;
+    z-index: 1100;
+}
+
+
+/* ==========================================
+   GESTIÓN DE USUARIOS & FORMULARIOS
+   ========================================== */
+
+/* Sub-vista Formulario Usuario */
+#sub-sec-form-usuario {
+    margin-top: 15px;
+}
+
+#form-usr-titulo {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+/* Clases de Utilidad y Visibilidad */
+.hidden {
+    display: none !important;
+}
+
+/* Formulario Grid y Grupos */
+.form-container {
+    background-color: var(--bg-card, #1e1e1e);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #333);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color, #444);
+    background-color: var(--bg-input, #2a2a2a);
+    color: #fff;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Mensajes de Error de Validación */
+.error-msg {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    min-height: 1.2em;
+}
+
+/* Badges de Roles de Usuario */
+.badge.Administrador {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.badge.Vendedor {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.badge.Cliente {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* Pestañas de Usuarios */
+.user-tabs-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.user-tab-btn {
+    padding: 8px 16px;
+    background-color: var(--bg-input, #2a2a2a);
+    color: #fff;
+    border: 1px solid var(--border-color, #444);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.user-tab-btn.active {
+    background-color: var(--accent-color, #e74c3c);
+    border-color: var(--accent-color, #e74c3c);
+}
+
+/* Badge Password */
+.badge-pass {
+    background-color: #333;
+    color: #2ecc71;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+}
